@@ -14,7 +14,7 @@ void init(){
 }
 
 int isFull(){
-    // rear ke next element ki position par agar front mil jaaye toh iska matlab queue full hai
+    // rear ki next position par agar front mil jaaye toh iska matlab queue full hai
     return ((queue.rear+1)%SIZE == queue.front);
 }
 
@@ -28,7 +28,7 @@ void enQueue(int value){
     }
     else{
         queue.rear = (queue.rear + 1) % SIZE;
-        // Agar queue khaali hai aur rear 0 index pe hai toh front ko 0 pe le aao i.e. enqueue element at first index
+        // Agar circular queue khaali hai aur rear is at index 0 (i.e. enqueueing the first element in an empty queue) toh phir front ko bhi -1 se 0 index par lekar aao.
         if(isEmpty()){
             queue.front = 0;
         }
